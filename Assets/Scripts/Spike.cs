@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillZone : MonoBehaviour {
-
+public class Spike : MonoBehaviour {
     [SerializeField]
     private Transform spawnPoint;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,16 +14,15 @@ public class KillZone : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collider)
     {
         //Debug.Log("hit");
         Player pl = collider.transform.root.GetComponent<Player>();
-        if(pl == null)
+        if (pl == null)
         {
             return;
         }
-        bool finish = true;
-        pl.Respawn(spawnPoint.position, 0 , finish);
+        bool finish = false;
+        pl.Respawn(spawnPoint.position, 0,finish);
     }
 }
