@@ -15,7 +15,7 @@ public struct BoneData
 public class RagdollPlayer : MonoBehaviour {
 
 
-    private Rigidbody2D thisRigidbody;
+    public Rigidbody2D baseRigidbody;
     [SerializeField]
     private BoneData[] limbs;
     [SerializeField]
@@ -25,7 +25,6 @@ public class RagdollPlayer : MonoBehaviour {
 
     private void Awake()
     {
-        thisRigidbody = GetComponent<Rigidbody2D>();
         dead = false;
 
         for(int i = 0; i < limbs.Length; i++)
@@ -36,12 +35,11 @@ public class RagdollPlayer : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (!forcePose || dead)
+        if (!forcePose || dead || baseRigidbody == null)
         {
             return;
         }
-        Vector2 basePos = thisRigidbody.position;
-        Vector2 baseForce = -Physics2D.gravity;
+        Vector2 basePos = baseRigidbody.position;
         for (int i = 0; i < limbs.Length; i++)
         {
             BoneData bone = limbs[i];
@@ -55,14 +53,42 @@ public class RagdollPlayer : MonoBehaviour {
         }
     }
 
+    private void OnEnable()
+    {
+        for (int i = 0; i < limbs.Length; i++)
+        {
+            limbs[i].rig.isKinematic = false;
+        }
+    }
+
+    private void OnDisable()
+    {
+        for(int i = 0; i < limbs.Length; i++)
+        {
+            limbs[i].rig.isKinematic = true;
+        }
+    }
+
     public void Die()
     {
         ToggleJoints(false);
         dead = true;
+        RagdollPool.singleton.RagdollDead(this);        // add this ragdoll to the death area
     }
 
-    public void Resurrect()
+    public void Resurrect(bool instant, Vector2 pos)
     {
+        
+        for(int i = 0; i < limbs.Length; i++)
+        {
+            limbs[i].rig.WakeUp();
+            limbs[i].rig.velocity = Vector2.zero;
+            limbs[i].rig.angularVelocity = 0f;
+            if (instant)
+            {
+                limbs[i].rig.position = pos + limbs[i].startPos;
+            }
+        }
         ToggleJoints(true);
         dead = false;
     }

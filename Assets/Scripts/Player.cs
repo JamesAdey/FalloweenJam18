@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
     private Rigidbody2D thisRigidbody;
-    private RagdollPlayer ragdoll;
+    public RagdollPlayer ragdoll;
 
     private bool isGrounded;
     [SerializeField]
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 3;
 
-    
+
 
     void Awake()
     {
@@ -26,14 +27,16 @@ public class Player : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        Respawn(Vector2.up * 10, 0f, true);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     void FixedUpdate()
     {
@@ -42,10 +45,13 @@ public class Player : MonoBehaviour {
 
         Vector2 pos = thisRigidbody.position;
 
-        RaycastHit2D hit = Physics2D.Linecast(pos, pos + offset,layers);
+        RaycastHit2D hit = Physics2D.Linecast(pos, pos + offset, layers);
 
         isGrounded = hit.distance < 0.55f;
-        ragdoll.forcePose = isGrounded;
+        if (ragdoll != null)
+        {
+            ragdoll.forcePose = isGrounded;
+        }
 
         Vector2 finalVel = thisRigidbody.velocity;
 
@@ -53,19 +59,31 @@ public class Player : MonoBehaviour {
 
 
         thisRigidbody.velocity = finalVel;
-        
+
     }
 
     public void Respawn(Vector2 pos, float rot, bool finish)
     {
         thisRigidbody.position = pos;
         thisRigidbody.rotation = rot;
-        //thisRigidbody.velocity = Vector2.zero;
-        if (finish == true)   thisRigidbody.angularVelocity = 0;
-        if (finish == false)  thisRigidbody.velocity = Vector2.zero;
-        ragdoll.Die();
+        if (finish == true) thisRigidbody.angularVelocity = 0;
+        if (finish == false) thisRigidbody.velocity = Vector2.zero;
+
+        GetRagdoll();
     }
-    public void Spring_Rebound(Vector2 velocity) {
+
+    private void GetRagdoll()
+    {
+        if (ragdoll != null)
+        {
+            ragdoll.Die();
+            ragdoll.baseRigidbody = null;
+        }
+        ragdoll = RagdollPool.singleton.GetRagdoll(thisRigidbody.position);
+        ragdoll.baseRigidbody = thisRigidbody;
+    }
+    public void Spring_Rebound(Vector2 velocity)
+    {
         thisRigidbody.velocity += velocity;
         //thisRigidbody.angularVelocity = 0.1f;
     }
