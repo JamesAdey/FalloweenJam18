@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private Rigidbody2D thisRigidbody;
+    private RagdollPlayer ragdoll;
+
     private bool isGrounded;
     [SerializeField]
     private Vector2 offset = new Vector2(0, -0.5f);
@@ -15,9 +17,12 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 3;
 
+    
+
     void Awake()
     {
         thisRigidbody = GetComponent<Rigidbody2D>();
+        ragdoll = GetComponent<RagdollPlayer>();
     }
 
     // Use this for initialization
@@ -40,15 +45,9 @@ public class Player : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Linecast(pos, pos + offset,layers);
 
         isGrounded = hit.distance < 0.55f;
-
+        ragdoll.forcePose = isGrounded;
 
         Vector2 finalVel = thisRigidbody.velocity;
-
-        if (upDir > 0.8f && isGrounded)
-        {
-            isGrounded = false;
-            finalVel += Vector2.up * 5;
-        }
 
         finalVel.x = Mathf.MoveTowards(finalVel.x, walkDir * moveSpeed, acceleration * Time.deltaTime);
 
@@ -63,7 +62,8 @@ public class Player : MonoBehaviour {
         thisRigidbody.rotation = rot;
         //thisRigidbody.velocity = Vector2.zero;
         if (finish == true)   thisRigidbody.angularVelocity = 0;
-        if (finish == false)  thisRigidbody.velocity = Vector2.zero;            
+        if (finish == false)  thisRigidbody.velocity = Vector2.zero;
+        ragdoll.Die();
     }
     public void Spring_Rebound(Vector2 velocity) {
         thisRigidbody.velocity += velocity;
