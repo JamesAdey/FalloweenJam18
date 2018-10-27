@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private Rigidbody2D thisRigidbody;
-
+    
     void Awake()
     {
         thisRigidbody = GetComponent<Rigidbody2D>();
@@ -21,11 +21,16 @@ public class Player : MonoBehaviour {
 		
 	}
 
-    public void Respawn(Vector2 pos, float rot)
+    public void Respawn(Vector2 pos, float rot, bool finish)
     {
         thisRigidbody.position = pos;
         thisRigidbody.rotation = rot;
         //thisRigidbody.velocity = Vector2.zero;
-        thisRigidbody.angularVelocity = 0;
+        if (finish == true)   thisRigidbody.angularVelocity = 0;
+        if (finish == false)  thisRigidbody.velocity = Vector2.zero;            
+    }
+    public void Spring_Rebound(Vector2 velocity) {
+        thisRigidbody.velocity += velocity;
+        //thisRigidbody.angularVelocity = 0.1f;
     }
 }
