@@ -5,9 +5,7 @@ using UnityEngine;
 public class PhysicsPlayer : MonoBehaviour
 {
 
-
-    [SerializeField]
-    private Transform spawnPoint;
+    public Transform spawnPoint;
     private Vector2 centrePos;
     private bool isGrounded;
     [SerializeField]
@@ -20,7 +18,7 @@ public class PhysicsPlayer : MonoBehaviour
     private float moveSpeed = 6;
     [SerializeField]
     private float jumpSpeed = 20;
-    private bool isAlive;
+    public bool IsAlive { get; private set; }
     private float respawnRot;
     private bool reqRespawn;
     private bool reqJump;
@@ -45,29 +43,22 @@ public class PhysicsPlayer : MonoBehaviour
         }
     }
 
-    // Use this for initialization
-    void Start()
-    {
-        Respawn(0f);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        // buffer inputs
-        reqRespawn |= Input.GetKeyUp(KeyCode.R);
+        if (!IsAlive)
+        {
+            return;
+        }
         reqJump |= Input.GetKeyUp(KeyCode.W);
+        reqJump |= Input.GetKeyUp(KeyCode.UpArrow);
     }
 
     void FixedUpdate()
     {
 
-        if (!isAlive)
+        if (!IsAlive)
         {
-            if (reqRespawn)
-            {
-                Respawn(respawnRot);
-            }
             return;
         }
 
@@ -120,7 +111,7 @@ public class PhysicsPlayer : MonoBehaviour
 
     void DoRagdollPhysics()
     {
-        if (!isAlive || baseRigidbody == null)
+        if (!IsAlive || baseRigidbody == null)
         {
             return;
         }
@@ -156,7 +147,7 @@ public class PhysicsPlayer : MonoBehaviour
 
         Resurrect(true);
 
-        isAlive = true;
+        IsAlive = true;
     }
 
     public void Spring_Rebound(Vector2 velocity)
@@ -167,7 +158,8 @@ public class PhysicsPlayer : MonoBehaviour
 
     public void Dead(Vector2 bloodPos, float rot, bool finish)
     {
-        if (isAlive)
+        Debug.Log("DEAD");
+        if (IsAlive)
         {
             EffectsManager.singleton.BloodSplatter(bloodPos, Quaternion.Euler(0, 0, rot));
             Dead(rot, finish);
@@ -176,7 +168,7 @@ public class PhysicsPlayer : MonoBehaviour
 
     public void Dead(float rot, bool finish)
     {
-        isAlive = false;
+        IsAlive = false;
         respawnRot = rot;
 
         Die();
@@ -208,14 +200,14 @@ public class PhysicsPlayer : MonoBehaviour
 
     public void Die()
     {
-
         ToggleJoints(false);
-        isAlive = false;
-        //RagdollPool.singleton.RagdollDead(this);        // add this ragdoll to the death area
+        IsAlive = false;
+        PhysRagdollPool.singleton.RagdollDead(this);        // add this ragdoll to the death list
     }
 
     public void Resurrect(bool instant)
     {
+        baseRigidbody.position = spawnPoint.position;
         for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].rig.WakeUp();
@@ -228,7 +220,7 @@ public class PhysicsPlayer : MonoBehaviour
             }
         }
         ToggleJoints(true);
-        isAlive = true;
+        IsAlive = true;
     }
 
     private void ToggleJoints(bool on)

@@ -705,7 +705,7 @@ MonoBehaviour:
   offset: {x: 0, y: -1.25}
   layers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
   acceleration: 9
   moveSpeed: 3
   jumpSpeed: 60

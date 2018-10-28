@@ -18,6 +18,10 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(target == null)
+        {
+            return;
+        }
         thisTransform.position = target.position + offset;
 	}
 }

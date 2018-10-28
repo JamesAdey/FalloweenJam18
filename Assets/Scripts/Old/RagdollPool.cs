@@ -3,8 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RagdollPool : MonoBehaviour {
+public class RagdollPool : MonoBehaviour
+{
     internal static RagdollPool singleton;
+
+
+
     private List<RagdollPlayer> ragdolls = new List<RagdollPlayer>();
 
     private Queue<RagdollPlayer> dead = new Queue<RagdollPlayer>();
@@ -20,7 +24,7 @@ public class RagdollPool : MonoBehaviour {
         singleton = this;
         Vector3 pos = transform.position;
         Quaternion rot = transform.rotation;
-        for(int i = 0; i < ragdollCount; i++)
+        for (int i = 0; i < ragdollCount; i++)
         {
             GameObject obj = (GameObject)Instantiate(ragdollPrefab, pos, rot);
             obj.name = "Ragdoll " + i;
@@ -38,9 +42,9 @@ public class RagdollPool : MonoBehaviour {
 
     internal RagdollPlayer GetRagdoll(Rigidbody2D connected)
     {
-        RagdollPlayer pl  = dead.Dequeue();
+        RagdollPlayer pl = dead.Dequeue();
         pl.enabled = true;
-        pl.Resurrect(true,connected);
+        pl.Resurrect(true, connected);
         return pl;
     }
 }
