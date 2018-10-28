@@ -20,8 +20,9 @@ public class KillZone : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Debug.Log("hit");
-        Player pl = collider.transform.root.GetComponent<Player>();
-        if(pl == null)
+        //Player pl = collider.transform.root.GetComponent<Player>();
+        PhysicsPlayer pl = collider.GetComponent<PhysicsPlayer>();
+        if (pl == null)
         {
             return;
         }

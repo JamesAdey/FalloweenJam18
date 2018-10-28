@@ -16,13 +16,16 @@ public class Spike : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D collider)
     {
+
         //Debug.Log("hit");
-        Player pl = collider.transform.root.GetComponent<Player>();
+        //Player pl = collider.transform.root.GetComponent<Player>();
+        PhysicsPlayer pl = collider.transform.root.GetComponent<PhysicsPlayer>();
         if (pl == null)
         {
             return;
         }
         bool finish = false;
-        pl.Dead(collider.GetContact(0).point + collider.GetContact(0).relativeVelocity.normalized/3,0,finish);
+        pl.Dead(collider.GetContact(0).point + collider.GetContact(0).relativeVelocity.normalized/4,0,finish);
+        //pl.Dead(collider.GetContact(0).point,0,finish);
     }
 }

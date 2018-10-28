@@ -10,6 +10,9 @@ public struct BoneData
     public Joint2D joint;
     [System.NonSerialized]
     public Vector2 startPos;
+    public bool alwaysSim;
+    [System.NonSerialized]
+    public float startRot;
 }
 
 public class RagdollPlayer : MonoBehaviour
@@ -36,7 +39,7 @@ public class RagdollPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!forcePose || dead || baseRigidbody == null)
+        if (dead || baseRigidbody == null)
         {
             return;
         }
@@ -72,7 +75,7 @@ public class RagdollPlayer : MonoBehaviour
 
     public void Die()
     {
-        
+
         ToggleJoints(false);
         dead = true;
         RagdollPool.singleton.RagdollDead(this);        // add this ragdoll to the death area

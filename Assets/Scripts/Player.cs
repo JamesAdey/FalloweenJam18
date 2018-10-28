@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private float moveSpeed = 3;
     private bool isAlive;
     private float respawnRot;
+    private bool reqRespawn;
+    private bool reqJump;
 
     void Awake()
     {
@@ -38,15 +40,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // buffer inputs
+        reqRespawn |= Input.GetKeyUp(KeyCode.R);
+        reqJump |= Input.GetKeyUp(KeyCode.W);
     }
 
     void FixedUpdate()
     {
-        bool respawn = Input.GetKeyUp(KeyCode.R);
+       
         if (!isAlive)
         {
-            if (respawn)
+            if (reqRespawn)
             {
                 Respawn(respawnRot);
             }
@@ -55,16 +59,26 @@ public class Player : MonoBehaviour
         float upDir = Input.GetAxis("Vertical");
         float walkDir = Input.GetAxis("Horizontal");
 
-        
+
 
         Vector2 pos = thisRigidbody.position;
 
         RaycastHit2D hit = Physics2D.Linecast(pos, pos + offset, layers);
-
-        isGrounded = hit.distance < 0.55f;
+        if (hit.fraction > 0) {
+            isGrounded = hit.distance < 0.55f;
+        }
+        else
+        {
+            isGrounded = false;
+        }
         if (ragdoll != null)
         {
             ragdoll.forcePose = isGrounded;
+        }
+
+        if(isGrounded && reqJump)
+        {
+            thisRigidbody.velocity += Vector2.up * 7;
         }
 
         Vector2 finalVel = thisRigidbody.velocity;
@@ -74,6 +88,8 @@ public class Player : MonoBehaviour
 
         thisRigidbody.velocity = finalVel;
 
+        reqRespawn = false;
+        reqJump = false;
     }
 
     public void Respawn(float rot)
