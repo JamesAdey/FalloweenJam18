@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class TowerTop : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float speed = 7;
+    Vector2 desiredPos;
+
+    public void SetTargetPos(Vector2 p)
+    {
+        desiredPos = p;
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = Vector2.Lerp(transform.position, desiredPos, Time.deltaTime * speed);
+    }
 }

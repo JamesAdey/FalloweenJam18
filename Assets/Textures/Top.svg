@@ -64,11 +64,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0467287"
-     inkscape:cx="14.844373"
-     inkscape:cy="351.05022"
+     inkscape:zoom="0.84637829"
+     inkscape:cx="-266.73531"
+     inkscape:cy="201.86234"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="true"
      units="px"
      inkscape:window-width="1920"
@@ -94,27 +94,25 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Background">
-    <path
-       transform="translate(0,-161.53332)"
-       style="fill:#5c5140;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 135.46666,161.53332 V 296.99998 H 0 V 161.53332 Z"
-       id="path1444"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-  </g>
+     inkscape:label="Background" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-161.53332)">
+    <path
+       style="opacity:1;fill:#5c5140;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 33.866666,208.09999 33.866666,4.23333 16.933334,8.46667 33.866664,-8.46667 h 16.93334 v 84.66667 L 0,296.99998 v -84.66666 z"
+       id="path1408-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
     <path
        style="opacity:1;fill:url(#linearGradient5105);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 33.866666,208.09999 33.866667,4.23333 16.933333,8.46667 33.866664,-8.46667 h 16.93334 l 0,84.66667 L 0,296.99998 v -84.66666 z"

@@ -177,6 +177,7 @@ public class PhysicsPlayer : MonoBehaviour
         // now respawn?
         if (finish == true)
         {
+            Tower.singleton.Sacrificed();
             Respawn(rot);
         }
 
