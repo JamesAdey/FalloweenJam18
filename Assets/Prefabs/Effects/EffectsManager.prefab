@@ -56,3 +56,5 @@ MonoBehaviour:
   - {fileID: 1973685368612710, guid: 357de5e4fa84d0449aec22be013b6a89, type: 2}
   - {fileID: 1237298640323734, guid: 22da5629f11e39544aef28389c280bd6, type: 2}
   - {fileID: 1342388415030580, guid: 0c9af691c73ea1c4ab8e266fbfac0a1f, type: 2}
+  bloodParticles: {fileID: 1729450329984490, guid: ec11591bf2c136a47aa95ba0ab292efc,
+    type: 2}

@@ -6,6 +6,7 @@ using UnityEngine;
 public struct BoneData
 {
     public Rigidbody2D rig;
+    public Collider2D col;
     public Vector2 offset;
     public Joint2D joint;
     [System.NonSerialized]

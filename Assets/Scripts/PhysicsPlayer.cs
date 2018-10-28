@@ -130,9 +130,10 @@ public class PhysicsPlayer : MonoBehaviour
                 bone.rig.AddForce(Vector2.right * diff * damping);
                 return;
             }
+
             Vector2 predictedPos = bone.rig.velocity + bonePos;         // where we will be in a second
             float d = damping;
-            Vector2 bodyDisp = ((desiredPos - predictedPos) / Mathf.Log(d)) + desiredPos - bonePos;
+            Vector2 bodyDisp = ((desiredPos - predictedPos) / Mathf.Sqrt(d)) + desiredPos - bonePos;
 
             bone.rig.AddForce(bodyDisp * damping);
         }
@@ -210,6 +211,7 @@ public class PhysicsPlayer : MonoBehaviour
         baseRigidbody.position = spawnPoint.position;
         for (int i = 0; i < limbs.Length; i++)
         {
+
             limbs[i].rig.WakeUp();
             limbs[i].rig.velocity = baseRigidbody.velocity;
             limbs[i].rig.angularVelocity = baseRigidbody.angularVelocity;
@@ -227,6 +229,14 @@ public class PhysicsPlayer : MonoBehaviour
     {
         for (int i = 0; i < limbs.Length; i++)
         {
+            if (on)
+            {
+                limbs[i].rig.gameObject.layer = LayerMask.NameToLayer("Player");
+            }
+            else
+            {
+                limbs[i].rig.gameObject.layer = LayerMask.NameToLayer("Gibs");
+            }
             if (limbs[i].joint != null)
             {
                 limbs[i].joint.enabled = on;

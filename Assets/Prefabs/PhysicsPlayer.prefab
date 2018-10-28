@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50782301603968622}
   - component: {fileID: 233951334163567126}
   - component: {fileID: 58725379232141084}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 50014632563905414}
   - component: {fileID: 233665412115222304}
   - component: {fileID: 70853712294979706}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: right_uparm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 50539588354400474}
   - component: {fileID: 233188658863928076}
   - component: {fileID: 70379962377117582}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: right_lowarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 50556776916541402}
   - component: {fileID: 233377266835304878}
   - component: {fileID: 70905845943663734}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: left_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 50859553179593016}
   - component: {fileID: 233469646965946822}
   - component: {fileID: 70732015699070812}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: left_uparm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 50735036378112022}
   - component: {fileID: 70425097869491876}
   - component: {fileID: 114545518296768832}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: PhysicsPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 50063353324567420}
   - component: {fileID: 233895365083695664}
   - component: {fileID: 70512609018234852}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: left_lowarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 50552092732626790}
   - component: {fileID: 233117763517122024}
   - component: {fileID: 70758457423957240}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: right_lowleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 50196416659159506}
   - component: {fileID: 233330988421548014}
   - component: {fileID: 70557615120523744}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: left_lowleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 50814895566347150}
   - component: {fileID: 233060074429561340}
   - component: {fileID: 70307829512702304}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: right_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,42 +712,52 @@ MonoBehaviour:
   baseRigidbody: {fileID: 50735036378112022}
   limbs:
   - rig: {fileID: 50735036378112022}
+    col: {fileID: 70425097869491876}
     offset: {x: 0, y: 0}
     joint: {fileID: 0}
     alwaysSim: 1
   - rig: {fileID: 50782301603968622}
+    col: {fileID: 58725379232141084}
     offset: {x: 0, y: 2}
     joint: {fileID: 233951334163567126}
     alwaysSim: 0
   - rig: {fileID: 50014632563905414}
+    col: {fileID: 70853712294979706}
     offset: {x: 0.2, y: 0.5}
     joint: {fileID: 233665412115222304}
     alwaysSim: 0
   - rig: {fileID: 50539588354400474}
+    col: {fileID: 70379962377117582}
     offset: {x: 0.5, y: 1}
     joint: {fileID: 233188658863928076}
     alwaysSim: 0
   - rig: {fileID: 50859553179593016}
+    col: {fileID: 70732015699070812}
     offset: {x: -0.2, y: 0.5}
     joint: {fileID: 233469646965946822}
     alwaysSim: 0
   - rig: {fileID: 50063353324567420}
+    col: {fileID: 70512609018234852}
     offset: {x: -0.5, y: 1}
     joint: {fileID: 233895365083695664}
     alwaysSim: 0
   - rig: {fileID: 50814895566347150}
+    col: {fileID: 70307829512702304}
     offset: {x: 0.2, y: 0.5}
     joint: {fileID: 233060074429561340}
     alwaysSim: 0
   - rig: {fileID: 50552092732626790}
+    col: {fileID: 70758457423957240}
     offset: {x: 0.2, y: -0.3}
     joint: {fileID: 233117763517122024}
     alwaysSim: 0
   - rig: {fileID: 50556776916541402}
+    col: {fileID: 70905845943663734}
     offset: {x: -0.4, y: 0.5}
     joint: {fileID: 233377266835304878}
     alwaysSim: 0
   - rig: {fileID: 50196416659159506}
+    col: {fileID: 70557615120523744}
     offset: {x: -0.4, y: -0.3}
     joint: {fileID: 233330988421548014}
     alwaysSim: 0
@@ -1220,7 +1230,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1892163341879076}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 50735036378112022}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1233,8 +1243,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -60
+    m_UpperAngle: 90
 --- !u!233 &233117763517122024
 HingeJoint2D:
   m_ObjectHideFlags: 1
@@ -1312,7 +1322,7 @@ HingeJoint2D:
   m_GameObject: {fileID: 1247868040337910}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 50735036378112022}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -1325,8 +1335,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: 240
+    m_UpperAngle: 90
 --- !u!233 &233469646965946822
 HingeJoint2D:
   m_ObjectHideFlags: 1
@@ -1348,8 +1358,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: 90
+    m_UpperAngle: 270
 --- !u!233 &233665412115222304
 HingeJoint2D:
   m_ObjectHideFlags: 1
@@ -1371,8 +1381,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_LowerAngle: -90
+    m_UpperAngle: 90
 --- !u!233 &233895365083695664
 HingeJoint2D:
   m_ObjectHideFlags: 1
@@ -1394,7 +1404,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 0
+    m_LowerAngle: 24.8
     m_UpperAngle: 359
 --- !u!233 &233951334163567126
 HingeJoint2D:
