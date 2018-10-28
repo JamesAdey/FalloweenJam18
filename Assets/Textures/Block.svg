@@ -15,8 +15,8 @@
    version="1.1"
    id="svg837"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="Spike.svg"
-   inkscape:export-filename="D:\GameDev\GDS\FalloweenJam18\Assets\Textures\Spike.png"
+   sodipodi:docname="Block.svg"
+   inkscape:export-filename="D:\GameDev\GDS\FalloweenJam18\Assets\Textures\Block.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <defs
@@ -68,25 +68,16 @@
      id="layer1"
      transform="translate(0,-161.53332)">
     <path
-       style="fill:#d8d8d8;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 67.733333,161.53332 -50.8,101.6 16.933333,16.93333 H 101.6 l 16.93333,-16.93333 z"
-       id="path1390"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccc" />
-    <path
-       style="fill:#000000;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 0,263.13332 h 16.933333 l 16.933333,16.93333 H 101.6 l 16.93333,-16.93333 h 16.93333 v 33.86666 H 0 Z"
+       style="fill:#565656;fill-opacity:1;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 0,263.13332 16.933333,0 16.933333,16.93333 H 101.6 l 16.93333,-16.93333 h 16.93333 v 33.86666 H 0 Z"
        id="path1392"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
     <path
-       style="fill:#f0f0f0;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 50.799999,195.39999 16.933333,8.46666 16.933334,-8.46666 -16.933334,-33.86667 -16.933333,33.86667"
-       id="path1396"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:#6f6f6f;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 25.399999,246.19999 25.4,8.46666 h 33.866667 l 25.400004,-8.46666 8.46666,16.93333 L 101.6,280.06665 H 33.866666 l -16.933333,-16.93333 8.466666,-16.93333"
-       id="path1398"
-       inkscape:connector-curvature="0" />
+       style="fill:#c4c4c4;stroke:#000000;stroke-width:1.32291667;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+       d="m 0,229.26665 135.46666,0 v 33.86667 H 118.53333 L 101.6,280.06665 H 33.866666 L 16.933333,263.13332 H 0 Z"
+       id="path1402"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
   </g>
 </svg>

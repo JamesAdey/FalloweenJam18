@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4321693203074276}
   - component: {fileID: 212990597296361636}
-  - component: {fileID: 70959872906603912}
   - component: {fileID: 50794340155372664}
   - component: {fileID: 233425104893265364}
+  - component: {fileID: 70179185769446530}
   m_Layer: 2
   m_Name: right_lowarm
   m_TagString: Untagged
@@ -39,9 +39,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4557136932342234}
   - component: {fileID: 212418298126927510}
-  - component: {fileID: 70286935058301032}
   - component: {fileID: 50184157856749062}
   - component: {fileID: 233807339815671802}
+  - component: {fileID: 70096741026077592}
   m_Layer: 2
   m_Name: right_uparm
   m_TagString: Untagged
@@ -58,9 +58,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4036627848344270}
   - component: {fileID: 212599561779831198}
-  - component: {fileID: 70880651099259872}
   - component: {fileID: 50885188105182888}
   - component: {fileID: 233580236303081138}
+  - component: {fileID: 70248464451621164}
   m_Layer: 2
   m_Name: right_leg
   m_TagString: Untagged
@@ -77,9 +77,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4543438813394818}
   - component: {fileID: 212399435236700350}
-  - component: {fileID: 70988548023333904}
   - component: {fileID: 50909751019296028}
   - component: {fileID: 233326365296537166}
+  - component: {fileID: 70343551831435812}
   m_Layer: 2
   m_Name: left_lowarm
   m_TagString: Untagged
@@ -96,9 +96,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4783130275206024}
   - component: {fileID: 212092151922712148}
-  - component: {fileID: 70287939402685888}
   - component: {fileID: 50524264118887850}
   - component: {fileID: 233416662887440840}
+  - component: {fileID: 70038783422316444}
   m_Layer: 2
   m_Name: left_leg
   m_TagString: Untagged
@@ -115,9 +115,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4876407253222784}
   - component: {fileID: 212089979641326722}
-  - component: {fileID: 70076413799742532}
   - component: {fileID: 50737839944112320}
   - component: {fileID: 233386838994537286}
+  - component: {fileID: 70864943562150984}
   m_Layer: 2
   m_Name: left_lowleg
   m_TagString: Untagged
@@ -134,8 +134,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4036781599636378}
   - component: {fileID: 212966670860353214}
-  - component: {fileID: 70775310783263344}
   - component: {fileID: 50439045178989144}
+  - component: {fileID: 70256597934119508}
   m_Layer: 2
   m_Name: body
   m_TagString: Untagged
@@ -152,9 +152,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4524817359049478}
   - component: {fileID: 212752723190826144}
-  - component: {fileID: 70649442350397860}
   - component: {fileID: 50516149512846140}
   - component: {fileID: 233159704456671706}
+  - component: {fileID: 70412310256160278}
   m_Layer: 2
   m_Name: left_uparm
   m_TagString: Untagged
@@ -171,9 +171,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4085311965495074}
   - component: {fileID: 212068879273573334}
-  - component: {fileID: 70530551941890890}
   - component: {fileID: 50464654085832114}
   - component: {fileID: 233435103822807098}
+  - component: {fileID: 70163803963994718}
   m_Layer: 2
   m_Name: right_lowleg
   m_TagString: Untagged
@@ -584,37 +584,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2395
---- !u!70 &70076413799742532
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1396629669125884}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.079}
-  m_Direction: 1
---- !u!70 &70286935058301032
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1020364212542532}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.079}
-  m_Direction: 1
---- !u!70 &70287939402685888
+--- !u!70 &70038783422316444
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -629,7 +599,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.48, y: 0.079}
   m_Direction: 1
---- !u!70 &70530551941890890
+--- !u!70 &70096741026077592
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020364212542532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.079}
+  m_Direction: 1
+--- !u!70 &70163803963994718
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,52 +629,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.48, y: 0.079}
   m_Direction: 1
---- !u!70 &70649442350397860
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1796147005613878}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.079}
-  m_Direction: 1
---- !u!70 &70775310783263344
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410227137822684}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.079, y: 0.879}
-  m_Direction: 0
---- !u!70 &70880651099259872
-CapsuleCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089708197243526}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.079}
-  m_Direction: 1
---- !u!70 &70959872906603912
+--- !u!70 &70179185769446530
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -704,12 +644,72 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.48, y: 0.079}
   m_Direction: 1
---- !u!70 &70988548023333904
+--- !u!70 &70248464451621164
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089708197243526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.079}
+  m_Direction: 1
+--- !u!70 &70256597934119508
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410227137822684}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.079, y: 0.879}
+  m_Direction: 0
+--- !u!70 &70343551831435812
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121221221136992}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.079}
+  m_Direction: 1
+--- !u!70 &70412310256160278
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796147005613878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.48, y: 0.079}
+  m_Direction: 1
+--- !u!70 &70864943562150984
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396629669125884}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

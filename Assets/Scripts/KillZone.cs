@@ -26,6 +26,6 @@ public class KillZone : MonoBehaviour {
             return;
         }
         bool finish = true;
-        pl.Respawn(spawnPoint.position, 0 , finish);
+        pl.Dead(0 , finish);
     }
 }

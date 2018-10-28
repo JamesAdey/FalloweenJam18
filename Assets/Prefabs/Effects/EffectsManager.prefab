@@ -9,48 +9,50 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1110995054539016}
+  m_RootGameObject: {fileID: 1817944693582368}
   m_IsPrefabAsset: 1
---- !u!1 &1110995054539016
+--- !u!1 &1817944693582368
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4574094691858186}
-  - component: {fileID: 114563423444033522}
+  - component: {fileID: 4045607044935980}
+  - component: {fileID: 114916101230357846}
   m_Layer: 0
-  m_Name: RagdollPool
+  m_Name: EffectsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4574094691858186
+--- !u!4 &4045607044935980
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110995054539016}
+  m_GameObject: {fileID: 1817944693582368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -20, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114563423444033522
+--- !u!114 &114916101230357846
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1110995054539016}
+  m_GameObject: {fileID: 1817944693582368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c891a3677e6370b4d9a23c1ff1e1a4d1, type: 3}
+  m_Script: {fileID: 11500000, guid: bad8771dc9eab1849a9c869caf9e9e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdollPrefab: {fileID: 1974075317430598, guid: 9ff2f1c8695188f4c853c4417e76d93a,
-    type: 2}
-  ragdollCount: 7
+  bloodSplatters:
+  - {fileID: 1431324848122690, guid: 67adaea76249e7943b65706f37a44551, type: 2}
+  - {fileID: 1973685368612710, guid: 357de5e4fa84d0449aec22be013b6a89, type: 2}
+  - {fileID: 1237298640323734, guid: 22da5629f11e39544aef28389c280bd6, type: 2}
+  - {fileID: 1342388415030580, guid: 0c9af691c73ea1c4ab8e266fbfac0a1f, type: 2}

@@ -23,6 +23,6 @@ public class Spike : MonoBehaviour {
             return;
         }
         bool finish = false;
-        pl.Respawn(spawnPoint.position, 0,finish);
+        pl.Dead(collider.GetContact(0).point + collider.GetContact(0).relativeVelocity.normalized/3,0,finish);
     }
 }

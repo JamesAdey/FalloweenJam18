@@ -36,12 +36,11 @@ public class RagdollPool : MonoBehaviour {
         dead.Enqueue(rg);
     }
 
-    internal RagdollPlayer GetRagdoll(Vector3 pos)
+    internal RagdollPlayer GetRagdoll(Rigidbody2D connected)
     {
         RagdollPlayer pl  = dead.Dequeue();
-        pl.transform.position = pos;
         pl.enabled = true;
-        pl.Resurrect(true,pos);
+        pl.Resurrect(true,connected);
         return pl;
     }
 }

@@ -12,7 +12,8 @@ public struct BoneData
     public Vector2 startPos;
 }
 
-public class RagdollPlayer : MonoBehaviour {
+public class RagdollPlayer : MonoBehaviour
+{
 
 
     public Rigidbody2D baseRigidbody;
@@ -27,7 +28,7 @@ public class RagdollPlayer : MonoBehaviour {
     {
         dead = false;
 
-        for(int i = 0; i < limbs.Length; i++)
+        for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].startPos = limbs[i].rig.position;
         }
@@ -47,8 +48,8 @@ public class RagdollPlayer : MonoBehaviour {
             Vector2 bonePos = bone.rig.position;                        // where the bone currently is
             Vector2 desiredPos = basePos + bone.offset;                 // where we want to be
             Vector2 predictedPos = bone.rig.velocity + bonePos;         // where we will be in a second
-            Vector2 bodyDisp = ((desiredPos - predictedPos)/Mathf.Log(damping)) + desiredPos - bonePos;
-            
+            Vector2 bodyDisp = ((desiredPos - predictedPos) / damping) + desiredPos - bonePos;
+
             bone.rig.AddForce(bodyDisp * damping);
         }
     }
@@ -63,7 +64,7 @@ public class RagdollPlayer : MonoBehaviour {
 
     private void OnDisable()
     {
-        for(int i = 0; i < limbs.Length; i++)
+        for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].rig.isKinematic = true;
         }
@@ -71,22 +72,23 @@ public class RagdollPlayer : MonoBehaviour {
 
     public void Die()
     {
+        
         ToggleJoints(false);
         dead = true;
         RagdollPool.singleton.RagdollDead(this);        // add this ragdoll to the death area
     }
 
-    public void Resurrect(bool instant, Vector2 pos)
+    public void Resurrect(bool instant, Rigidbody2D connected)
     {
-        
-        for(int i = 0; i < limbs.Length; i++)
+        baseRigidbody = connected;
+        for (int i = 0; i < limbs.Length; i++)
         {
             limbs[i].rig.WakeUp();
-            limbs[i].rig.velocity = Vector2.zero;
-            limbs[i].rig.angularVelocity = 0f;
+            limbs[i].rig.velocity = connected.velocity;
+            limbs[i].rig.angularVelocity = connected.angularVelocity;
             if (instant)
             {
-                limbs[i].rig.position = pos + limbs[i].startPos;
+                limbs[i].rig.position = connected.position + limbs[i].startPos;
             }
         }
         ToggleJoints(true);
@@ -95,9 +97,9 @@ public class RagdollPlayer : MonoBehaviour {
 
     private void ToggleJoints(bool on)
     {
-        for(int i = 0; i < limbs.Length; i++)
+        for (int i = 0; i < limbs.Length; i++)
         {
-            if(limbs[i].joint != null)
+            if (limbs[i].joint != null)
             {
                 limbs[i].joint.enabled = on;
             }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    [SerializeField]
+    private Transform spawnPoint;
+
     private Rigidbody2D thisRigidbody;
     public RagdollPlayer ragdoll;
 
@@ -17,8 +20,8 @@ public class Player : MonoBehaviour
     private float acceleration = 9;
     [SerializeField]
     private float moveSpeed = 3;
-
-
+    private bool isAlive;
+    private float respawnRot;
 
     void Awake()
     {
@@ -29,7 +32,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Respawn(Vector2.up * 10, 0f, true);
+        Respawn(0f);
     }
 
     // Update is called once per frame
@@ -40,8 +43,19 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        bool respawn = Input.GetKeyUp(KeyCode.R);
+        if (!isAlive)
+        {
+            if (respawn)
+            {
+                Respawn(respawnRot);
+            }
+            return;
+        }
         float upDir = Input.GetAxis("Vertical");
         float walkDir = Input.GetAxis("Horizontal");
+
+        
 
         Vector2 pos = thisRigidbody.position;
 
@@ -62,14 +76,16 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Respawn(Vector2 pos, float rot, bool finish)
+    public void Respawn(float rot)
     {
-        thisRigidbody.position = pos;
+        
+        thisRigidbody.isKinematic = false;
+        thisRigidbody.position = spawnPoint.position;
         thisRigidbody.rotation = rot;
-        if (finish == true) thisRigidbody.angularVelocity = 0;
-        if (finish == false) thisRigidbody.velocity = Vector2.zero;
 
         GetRagdoll();
+
+        isAlive = true;
     }
 
     private void GetRagdoll()
@@ -79,12 +95,51 @@ public class Player : MonoBehaviour
             ragdoll.Die();
             ragdoll.baseRigidbody = null;
         }
-        ragdoll = RagdollPool.singleton.GetRagdoll(thisRigidbody.position);
-        ragdoll.baseRigidbody = thisRigidbody;
+        ragdoll = RagdollPool.singleton.GetRagdoll(thisRigidbody);
     }
+
     public void Spring_Rebound(Vector2 velocity)
     {
         thisRigidbody.velocity += velocity;
         //thisRigidbody.angularVelocity = 0.1f;
+    }
+
+    public void Dead(Vector2 bloodPos, float rot, bool finish)
+    {
+        EffectsManager.singleton.BloodSplatter(bloodPos, Quaternion.Euler(0, 0, rot));
+        Dead(rot, finish);
+    }
+
+
+    public void Dead(float rot, bool finish)
+    {
+        isAlive = false;
+        respawnRot = rot;
+
+        // first drop the ragdoll
+        if (ragdoll != null)
+        {
+
+            ragdoll.Die();
+            ragdoll.baseRigidbody = null;
+            ragdoll = null;
+        }
+
+        // now respawn?
+        if (finish == true)
+        {
+            thisRigidbody.angularVelocity = 0;
+            Respawn(rot);
+        }
+        else
+        {
+            thisRigidbody.angularVelocity = 0;
+            thisRigidbody.velocity = Vector2.zero;
+            thisRigidbody.isKinematic = true;
+        }
+
+
+
+        // TODO... this
     }
 }
