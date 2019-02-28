@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4600922171993858}
   - component: {fileID: 212687227875637156}
   - component: {fileID: 61179650727574228}
-  - component: {fileID: 114629162028311884}
+  - component: {fileID: 114631600644059760}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114629162028311884
+--- !u!114 &114631600644059760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

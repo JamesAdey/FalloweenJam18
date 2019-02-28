@@ -14,9 +14,9 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
+  - Player
+  - Walkable
+  - Gibs
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3950964047
+    locked: 0
+  - name: Walls
+    uniqueID: 652232751
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effects
+    uniqueID: 467633283
+    locked: 0
+  - name: Players
+    uniqueID: 167333269
     locked: 0
